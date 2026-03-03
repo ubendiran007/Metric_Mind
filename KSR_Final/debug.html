@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug LocalStorage</title>
+</head>
+<body>
+    <h1>Debug LocalStorage</h1>
+    <div id="output"></div>
+    <script>
+        const output = document.getElementById('output');
+        const userBusinesses = localStorage.getItem('userBusinesses');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        
+        output.innerHTML = `
+            <p><strong>isLoggedIn:</strong> ${isLoggedIn}</p>
+            <p><strong>userBusinesses:</strong> ${userBusinesses}</p>
+            <p><strong>Parsed businesses:</strong> ${JSON.stringify(JSON.parse(userBusinesses || '[]'), null, 2)}</p>
+        `;
+    </script>
+</body>
+</html>
